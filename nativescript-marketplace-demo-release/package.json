@@ -1,0 +1,37 @@
+{
+  "nativescript": {
+    "id": "org.nativescript.examples",
+    "tns-ios": {
+      "version": "2.5.0"
+    },
+    "tns-android": {
+      "version": "2.5.0"
+    }
+  },
+  "dependencies": {
+    "acra-telerik-analytics": "*",
+    "highlight.js": "^8.7.0",
+    "nativescript-fresco": "1.0.12",
+    "nativescript-iqkeyboardmanager": "^1.0.1",
+    "nativescript-plugin-firebase": "^3.8.5",
+    "nativescript-telerik-analytics": "*",
+    "nativescript-telerik-ui-pro": "*",
+    "tns-core-modules": "2.5.0"
+  },
+  "devDependencies": {
+    "babel-traverse": "6.9.0",
+    "babel-types": "6.9.0",
+    "babylon": "6.8.0",
+    "filewalker": "0.1.2",
+    "json-loader": "^0.5.4",
+    "lazy": "1.0.11",
+    "nativescript-dev-android-snapshot": "~0.0.6",
+    "nativescript-dev-typescript": "~0.3.7",
+    "typescript": "~2.1.5",
+    "shelljs": "^0.5.3"
+  },
+  "scripts": {
+    "postinstall" : "(cd node_modules/nativescript-plugin-firebase && npm run setup)"
+  },
+  "license": "Apache-2.0"
+}

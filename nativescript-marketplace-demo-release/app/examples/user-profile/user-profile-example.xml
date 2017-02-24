@@ -1,0 +1,67 @@
+<examples:ExamplePage
+        xmlns="http://www.nativescript.org/tns.xsd"
+        xmlns:examples="examples/example-base-page"
+        navigatingTo="onPageNavigatingTo"
+        tap="onPageTapped">
+    <Page.actionBar>
+        <ActionBar title="User profile" automationText="ActionBar">
+            <NavigationButton icon="res://ic_back" tap="goBack" automationText="GoBack" />
+            <Android>
+                <ActionItem id="exampleMenuButton" icon="res://ic_menu_example" automationText="ExampleMenu" />
+            </Android>
+            <iOS>
+                <ActionItem id="exampleMenuButton" ios.position="right" automationText="ExampleMenu">
+                    <ActionItem.actionView>
+                        <Image src="res://ic_menu_example" width="22" height="22" margin="0, -11, 0, 11" />
+                    </ActionItem.actionView>
+                </ActionItem>
+            </iOS>
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout id="example-background" loaded="onBackgroundLoaded">
+        <GridLayout id="form-content" cssClass="form-content" rows="auto,*,auto" loaded="onContentLoaded">
+            <StackLayout cssClass="top-border" row="0"/>
+            <ScrollView row="1" cssClass="fields-section">
+                <StackLayout>
+                    <!-- Username -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Username" cssClass="field-title" />
+                        <TextField id="username" text="{{ username }}" cssClass="field" ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Email -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Email" cssClass="field-title" />
+                        <TextField id="email" text="{{ email }}" cssClass="field" ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Password -->
+                    <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                        <Label text="Password" cssClass="field-title" />
+                        <TextField id="password" text="{{ password }}" secure="{{ showPassword, !showPassword }}" cssClass="field"  ios:col="1" android:row="1" tap="onTextInputTapped" />
+                    </GridLayout>
+                    <StackLayout cssClass="line"/>
+                    <StackLayout orientation="horizontal" tap="onShowPasswordTapped">
+                        <Image src="{{ showPassword ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" />
+                        <Label text="Show password" cssClass="field-switch-title" />
+                    </StackLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Bio -->
+                    <StackLayout>
+                        <Label text="Bio" cssClass="field-title" ios:visibility="collapse"/>
+                        <TextView id="bio" text="{{ bio }}" android:hint="Add bio" ios:hint="Bio" cssClass="field-multiline" tap="onTextInputTapped"/>
+                    </StackLayout>
+                    <StackLayout cssClass="line"/>
+                    <!-- Public -->
+                    <GridLayout columns="*, auto" verticalAlignment="top">
+                        <Label text="Public profile" cssClass="field-switch-title" />
+                        <Switch checked="{{ isPublic }}" cssClass="field-switch" />
+                    </GridLayout>
+                </StackLayout>
+            </ScrollView>
+            <Button text="Update" cssClass="update" tap="onUpdateButtonTapped" row="2"/>
+        </GridLayout>
+        <!-- Picture -->
+        <Image id="image" src="res://user" cssClass="profile-picture" tap="onProfilePictureTapped"/>
+    </GridLayout>
+</examples:ExamplePage>
